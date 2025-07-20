@@ -24,24 +24,26 @@ function loadSharedHeader() {
     const style = document.createElement('style');
     style.innerHTML = `
         .translate-widget {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10000;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 10px;
-            border-radius: 10px;
-            border: 2px solid #d4af37;
-        }
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: rgba(20, 20, 20, 0.95);
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #333333;
+    box-shadow: 0 0 20px rgba(100, 100, 100, 0.5), 0 0 40px rgba(150, 150, 150, 0.3);
+}
 
-        .goog-te-combo {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #d4af37;
-            color: #d4af37;
-            padding: 8px;
-            border-radius: 5px;
-            font-weight: 600;
-        }
+.goog-te-combo {
+    background: rgba(15, 15, 15, 0.9);
+    border: 2px solid #444444;
+    color: #cccccc;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(120, 120, 120, 0.4);
+}
 
         .goog-te-banner-frame {
             display: none !important;
