@@ -39,7 +39,7 @@ exports.handler = async (event, context) => {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'api-key': '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'
+          'api-key': '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'
         },
         body: JSON.stringify(brevoData)
       });
