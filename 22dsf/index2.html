@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22 DSF - Global Excellence</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1611 0%, #2d2418 50%, #1a1611 100%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .fire-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 2rem 0;
+            color: #ffffff;
+            position: relative;
+            z-index: 10;
+            padding: 80px;
+            animation: colorShift 8s ease-in-out infinite;
+        }
+        
+        .fire-text::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            background: 
+                radial-gradient(ellipse 12px 28px at 15% 8%, rgba(255, 0, 0, 0.9) 0%, transparent 60%),
+                radial-gradient(ellipse 10px 24px at 30% 6%, rgba(255, 69, 0, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 14px 32px at 45% 10%, rgba(255, 140, 0, 0.7) 0%, transparent 60%),
+                radial-gradient(ellipse 11px 26px at 60% 7%, rgba(255, 100, 0, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 13px 30px at 75% 9%, rgba(255, 180, 0, 0.6) 0%, transparent 60%),
+                radial-gradient(ellipse 8px 22px at 85% 5%, rgba(255, 220, 0, 0.7) 0%, transparent 60%),
+                radial-gradient(ellipse 6px 20px at 10% 92%, rgba(255, 0, 0, 0.9) 0%, transparent 60%),
+                radial-gradient(ellipse 5px 16px at 25% 94%, rgba(255, 69, 0, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 8px 24px at 40% 90%, rgba(255, 140, 0, 0.7) 0%, transparent 60%),
+                radial-gradient(ellipse 6px 18px at 55% 93%, rgba(255, 100, 0, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 7px 22px at 70% 91%, rgba(255, 180, 0, 0.6) 0%, transparent 60%),
+                radial-gradient(ellipse 4px 14px at 85% 95%, rgba(255, 220, 0, 0.7) 0%, transparent 60%),
+                radial-gradient(ellipse 20px 10px at 5% 25%, rgba(255, 50, 0, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 24px 12px at 8% 45%, rgba(255, 120, 0, 0.7) 0%, transparent 60%),
+                radial-gradient(ellipse 16px 8px at 4% 65%, rgba(255, 200, 0, 0.6) 0%, transparent 60%),
+                radial-gradient(ellipse 20px 10px at 95% 30%, rgba(255, 50, 0, 0.8) 0%, transparent 60%),
+                radial-gradient(ellipse 24px 12px at 92% 50%, rgba(255, 120, 0, 0.7) 0%, transparent 60%),
+                radial-gradient(ellipse 16px 8px at 96% 70%, rgba(255, 200, 0, 0.6) 0%, transparent 60%);
+            z-index: -1;
+            animation: flameMovement 8s ease-in-out infinite;
+        }
+        
+        .fire-text::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: radial-gradient(ellipse 400px 150px at 50% 50%, #000000 0%, #333333 30%, #666666 50%, transparent 70%);
+            z-index: -2;
+            border-radius: 50px;
+        }
+        
+        @keyframes colorShift {
+            0% { color: #ff0000; }
+            25% { color: #8000ff; }
+            50% { color: #0066ff; }
+            75% { color: #8000ff; }
+            100% { color: #ff0000; }
+        }
+        
+        @keyframes flameMovement {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.03) rotate(0.8deg); }
+            50% { transform: scale(0.97) rotate(-0.5deg); }
+            75% { transform: scale(1.02) rotate(0.3deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(45, 36, 24, 0.8) 0%, rgba(26, 22, 17, 0.9) 100%);
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g1"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="3" fill="url(%23g1)"/><circle cx="800" cy="300" r="2" fill="url(%23g1)"/><circle cx="400" cy="600" r="2" fill="url(%23g1)"/><circle cx="900" cy="800" r="3" fill="url(%23g1)"/></svg>') repeat;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .hero-newsletter-link {
+            display: inline-block;
+            background: #444444;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 5;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+            border: 2px solid #666666;
+            animation: borderColorChange 8s ease-in-out infinite;
+        }
+        
+        @keyframes borderColorChange {
+            0% { border-color: #666666; }
+            25% { border-color: #555555; }
+            50% { border-color: #4a0000; }
+            75% { border-color: #661100; }
+            100% { border-color: #666666; }
+        }
+        
+        .hero-newsletter-link:hover {
+            transform: translateY(-4px) scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #e0d0b8;
+            text-shadow: 0 0 10px rgba(224, 208, 184, 0.5);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        .hero-signup-section {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.3) 0%, rgba(74, 0, 0, 0.8) 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 30px;
+            border: 3px solid rgba(184, 134, 11, 0.6);
+            max-width: 650px;
+            margin: 2rem auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-signup-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.2) 0%, rgba(74, 0, 0, 0.1) 50%, transparent 70%);
+            animation: heroPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes heroPulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero-signup-section h3 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 2;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-signup-section .signup-text {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.5);
+}
+        
+        .hero-signup-section .privacy-text {
+            color: #b8860b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            opacity: 0.9;
+        }
+        
+        .hero-signup-section .offers-text {
+            color: #cd853f;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(205, 133, 63, 0.5);
+        }
+        
+        .hero-signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 380px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-email-input {
+            padding: 15px 20px;
+            border: 2px solid rgba(184, 134, 11, 0.5);
+            border-radius: 15px;
+            background: rgba(30, 25, 20, 0.95);
+            color: #d4af37;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-email-input:focus {
+            outline: none;
+            border-color: rgba(184, 134, 11, 0.9);
+            box-shadow: 0 0 25px rgba(184, 134, 11, 0.4);
+        }
+        
+        .hero-email-input::placeholder {
+            color: #999;
+        }
+        
+        .hero-signup-btn {
+            background: linear-gradient(135deg, #b8860b, #d4af37, #8b0000);
+            background-size: 300% 300%;
+            color: #ffffff;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 12px 35px rgba(184, 134, 11, 0.5);
+            animation: gradientShift 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero-signup-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .hero-signup-btn:hover::before {
+            left: 100%;
+        }
+        
+        .hero-signup-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(184, 134, 11, 0.7);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .section {
+            padding: 5rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(45, 36, 24, 0.6) 0%, rgba(26, 22, 17, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(224, 208, 184, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #e0d0b8;
+            text-shadow: 0 0 15px rgba(224, 208, 184, 0.6);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(45, 36, 24, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(224, 208, 184, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 165, 0, 0.2);
+            border-color: rgba(255, 165, 0, 0.5);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffa500;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+        
+        .section-description {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #d0c0a8;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.1) 0%, rgba(45, 36, 24, 0.8) 100%);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-item {
+            background: linear-gradient(135deg, rgba(45, 36, 24, 0.9) 0%, rgba(26, 22, 17, 0.8) 100%);
+            padding: 2.5rem;
+            border-radius: 25px;
+            border: 3px solid rgba(184, 134, 11, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .contact-item:hover::before {
+            left: 100%;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(184, 134, 11, 0.8);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.3);
+        }
+        
+        .contact-item h4 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .contact-item p {
+            color: #e0d0b8;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(224, 208, 184, 0.5);
+            letter-spacing: 0.5px;
+        }
+        
+        .address {
+            font-size: 1.2rem;
+            color: #e0d0b8;
+            text-shadow: 0 0 10px rgba(224, 208, 184, 0.5);
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(45, 36, 24, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(224, 208, 184, 0.3);
+        }
+        
+        .newsletter-promo {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.2) 0%, rgba(45, 36, 24, 0.95) 100%);
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            border: 3px solid rgba(184, 134, 11, 0.5);
+            max-width: 500px;
+            margin: 4rem auto 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .newsletter-signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .email-input {
+            padding: 15px 20px;
+            border: 2px solid rgba(184, 134, 11, 0.4);
+            border-radius: 15px;
+            background: rgba(26, 22, 17, 0.9);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: rgba(184, 134, 11, 0.8);
+            box-shadow: 0 0 20px rgba(184, 134, 11, 0.3);
+        }
+        
+        .email-input::placeholder {
+            color: #999;
+        }
+        
+        .signup-btn {
+            background: linear-gradient(135deg, #b8860b, #d4af37, #8b0000);
+            background-size: 300% 300%;
+            color: white;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4);
+            animation: gradientShift 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .signup-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .signup-btn:hover::before {
+            left: 100%;
+        }
+        
+        .signup-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.6);
+        }
+        
+        .newsletter-link-main {
+            display: inline-block;
+            background: linear-gradient(135deg, #003366, #663399, #8b0000);
+            background-size: 300% 300%;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(51, 51, 153, 0.4);
+            position: relative;
+            z-index: 2;
+            animation: rainbowShift 4s ease-in-out infinite;
+            margin-top: 1rem;
+        }
+        
+        @keyframes rainbowShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .newsletter-link-main:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 20px 40px rgba(51, 51, 153, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .fire-text {
+                font-size: 2.5rem;
+                padding: 60px 40px;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .newsletter-promo {
+                padding: 2rem 1.5rem;
+            }
+            
+            .hero-signup-section h3 {
+                font-size: 2rem;
+            }
+        }
+        
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255, 165, 0, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+    
+    <div class="hero">
+        <div class="container">
+            <a href="newsletter.html" class="hero-newsletter-link">Newsletter & Updates</a>
+            <h1 class="fire-text">22 DSF</h1>
+            <p class="subtitle glow-text">Global Excellence in Trade, Real Estate & Organic Solutions</p>
+            
+            <div class="hero-signup-section">
+                <h3>Don't miss any more offers!</h3>
+                <p class="signup-text">Sign Up for Updates</p>
+                <p class="privacy-text">
+                    By signing up, you agree to receive marketing emails from 22 DSF. You can unsubscribe at any time. 
+                    We respect your privacy and will never share your information with third parties.
+                </p>
+                <p class="offers-text">We will only send you interesting offers!</p>
+                
+                <form class="hero-signup-form" id="heroNewsletterForm">
+                    <input 
+                        type="email" 
+                        class="hero-email-input" 
+                        placeholder="Enter your email for exclusive offers"
+                        required
+                        id="heroEmailInput"
+                    >
+                    <button type="submit" class="hero-signup-btn">Subscribe Now!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="glow-text">International Trade</h2>
+            <p class="section-description">
+                Connecting global markets with premium quality products and exceptional service across diverse industries.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Automotive</h3>
+                    <p>Premium vehicles and automotive components sourced from leading manufacturers worldwide.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fresh Foods</h3>
+                    <p>Farm-fresh produce and gourmet foods delivered with uncompromising quality standards.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Metals & Minerals</h3>
+                    <p>Strategic sourcing of precious metals and industrial minerals for global supply chains.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Oils</h3>
+                    <p>Premium cooking oils, industrial lubricants, and specialty oil products for diverse applications.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Technologies</h3>
+                    <p>Cutting-edge technological solutions and innovative products for the digital age.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="glow-text">Real Estate</h2>
+            <p class="section-description">
+                Comprehensive real estate solutions spanning the globe, from luxury properties to strategic investments.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Buy & Sell</h3>
+                    <p>Expert property acquisition and sales services for residential, commercial, and investment properties.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Leasing</h3>
+                    <p>Flexible leasing solutions tailored to meet diverse client needs across international markets.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Development</h3>
+                    <p>Full-scale property development and construction services with innovative design approaches.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Renovation</h3>
+                    <p>Professional renovation and restoration services that enhance property value and appeal.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="glow-text">Herbal & Organic</h2>
+            <p class="section-description">
+                Artisanally crafted herbal and organic products, made by yours truly and distributed worldwide with passion and care.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Premium Herbs</h3>
+                    <p>Hand-selected, organically grown herbs sourced from pristine environments around the world.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Organic Wellness</h3>
+                    <p>Carefully formulated wellness products combining traditional wisdom with modern quality standards.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Natural Extracts</h3>
+                    <p>Pure, concentrated plant extracts processed using traditional methods for maximum potency.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Global Distribution</h3>
+                    <p>Worldwide shipping network ensuring fresh, authentic products reach customers globally.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="glow-text">Get In Touch</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <p>info@22dsf@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Phone (Germany)</h4>
+                    <p>+49 15779753896</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Phone (USA)</h4>
+                    <p>+1 240 726 6550</p>
+                </div>
+            </div>
+            
+            <div class="address">
+                <strong>22 DSF Global Headquarters</strong><br>
+                Ebertshauser Hauptstraße 18<br>
+                98554 Zella-Mehlis<br>
+                Germany
+            </div>
+            
+            <div class="newsletter-promo">
+                <form class="newsletter-signup-form" id="newsletterForm">
+                    <input 
+                        type="email" 
+                        class="email-input" 
+                        placeholder="Enter your email address"
+                        required
+                        id="emailInput"
+                    >
+                    <button type="submit" class="signup-btn">Subscribe Now!</button>
+                </form>
+                
+                <a href="newsletter.html" class="newsletter-link-main">📧 Newsletter & Updates Page</a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                
+                particlesContainer.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 8000);
+            }, 500);
+        }
+        
+        function setupScrollAnimations() {
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'all 0.8s ease';
+                observer.observe(section);
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            setupScrollAnimations();
+            
+            const heroForm = document.getElementById('heroNewsletterForm');
+            const mainForm = document.getElementById('newsletterForm');
+            
+            if (heroForm) {
+                heroForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('heroEmailInput').value;
+                    alert('🔥 Amazing! Welcome to 22 DSF! We have received your email: ' + email + ' - Get ready for exclusive offers!');
+                    document.getElementById('heroEmailInput').value = '';
+                });
+            }
+            
+            if (mainForm) {
+                mainForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('emailInput').value;
+                    alert('Thank you for signing up! We have received your email: ' + email);
+                    document.getElementById('emailInput').value = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
