@@ -140,16 +140,16 @@ body {
 }
 
 .hero-signup-section {
-    background: linear-gradient(135deg, rgba(184, 134, 11, 0.3) 0%, rgba(74, 0, 0, 0.8) 100%);
+    background: rgba(20, 20, 20, 0.95);
     padding: 3rem 2.5rem;
     border-radius: 30px;
-    border: 3px solid rgba(184, 134, 11, 0.6);
+    border: 3px solid #333333;
+    box-shadow: 0 0 20px rgba(100, 100, 100, 0.5), 0 0 40px rgba(150, 150, 150, 0.3);
     max-width: 650px;
     margin: 2rem auto;
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .hero-signup-section::before {
@@ -241,23 +241,22 @@ body {
 }
 
 .hero-signup-btn {
-    background: linear-gradient(135deg, #b8860b, #d4af37, #8b0000);
-    background-size: 300% 300%;
-    color: #ffffff;
+    background: rgba(15, 15, 15, 0.9);
+    border: 2px solid #444444;
+    color: #cccccc;
     padding: 18px 30px;
-    border: none;
     border-radius: 15px;
     font-size: 1.2rem;
     font-weight: 800;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 12px 35px rgba(184, 134, 11, 0.5);
-    animation: gradientShift 3s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(120, 120, 120, 0.4);
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .hero-signup-btn::before {
