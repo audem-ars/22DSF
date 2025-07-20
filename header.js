@@ -7,7 +7,7 @@ function loadSharedHeader() {
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({
                     pageLanguage: 'en',
-                    includedLanguages: 'de,fr,tr,hi,pt,bg,sk',
+                    includedLanguages: 'en,de,fr,tr,hi,pt,bg,sk',
                     layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
                     gaTrack: true
                 }, 'google_translate_element');
